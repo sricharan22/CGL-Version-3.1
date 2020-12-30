@@ -13,10 +13,11 @@ import org.junit.jupiter.api.Test;
 public class TestJunitCreateBoard {
 	@Test
 	public void testCreateBoard() {
+		int m = 5;
 		int n = 5;
 		int[][] livecells = { { 1, 1 }, { 2, 3 }, { 3, 3 } };
 		Board board = new Board();
-		boolean[][] board2 = board.createBoard(n, livecells);
+		boolean[][] board2 = board.createBoard(m, n, livecells);
 		String res = "";
 		for (int i = 0; i < board2.length; i++) {
 			for (int j = 0; j < board2.length; j++) {

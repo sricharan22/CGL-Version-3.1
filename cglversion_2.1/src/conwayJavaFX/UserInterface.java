@@ -317,7 +317,7 @@ public class UserInterface {
 		try {
 			// Your code goes here......
 			Board b = new Board();		// Object creation
-			cur = b.createBoard(boardSizeHeight, arr);		// generating current generation
+			cur = b.createBoard(boardSizeHeight, boardSizeWidth, arr);		// generating current generation
 			for (int i = 0; i < cur.length; i++) {
 				for (int j = 0; j < cur.length; j++) {
 					if (cur[i][j]) {

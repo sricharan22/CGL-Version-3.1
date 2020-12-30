@@ -20,7 +20,7 @@ public class ConwaysGameofLife {
 	 * 
 	 */
 
-	public String Start(String inp, int n, int[][] livecells, String gen) {
+	public String Start(String inp, int m, int n, int[][] livecells, String gen) {
 		String[] tokens = gen.split(" ");
 		boolean flag;
 //		condition to start the execution on not.
@@ -33,11 +33,11 @@ public class ConwaysGameofLife {
 			Board b = new Board();
 //			for printing current generation.
 			if (tokens[0].equals("current")) {
-				return b.printBoard(b.createBoard(n, livecells));
+				return b.printBoard(b.createBoard(m, n, livecells));
 			} 
 //			for printing next generation.
 			else if (tokens[0].equals("next")) {
-				return b.printBoard(b.generateNextGeneration(b.createBoard(n, livecells)));
+				return b.printBoard(b.generateNextGeneration(b.createBoard(m, n, livecells)));
 			} 
 //			for printing nth generation.
 			else if (tokens[0].equals("gen")) {
@@ -46,7 +46,7 @@ public class ConwaysGameofLife {
 				boolean[][] curgener = null;
 				for (int i = 0; i < nthgen; i++) {
 					if (i == 0) {
-						curgener = b.createBoard(n, livecells);
+						curgener = b.createBoard(m, n, livecells);
 					} else {
 						gener = b.generateNextGeneration(curgener);
 //						condition to check whether current and next generations are same or not.
@@ -64,7 +64,7 @@ public class ConwaysGameofLife {
 				boolean[][] curgener = null;
 				for (int i = 0;; i++) {
 					if (i == 0) {
-						curgener = b.createBoard(n, livecells);
+						curgener = b.createBoard(m, n, livecells);
 					} else {
 //						System.out.println(i);
 						gener = b.generateNextGeneration(curgener);

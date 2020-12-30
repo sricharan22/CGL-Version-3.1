@@ -17,9 +17,9 @@ public class Board {
 	 * output is cglboard with boolean 2d array.
 	 * 
 	 */
-	public boolean[][] createBoard(final int n, int[][] liveCells) {
+	public boolean[][] createBoard(final int m, final int n, int[][] liveCells) {
 		// You can call the printBoard that prints the board.
-		boolean cglBoard[][] = new boolean[n][n];
+		boolean cglBoard[][] = new boolean[m][n];
 		for (int i = 0; i < liveCells.length; i++) {
 			Element e = new Element();
 			cglBoard = e.makeTrue(cglBoard, liveCells[i][0], liveCells[i][1]);
@@ -37,7 +37,7 @@ public class Board {
 		// your code goes here...
 		String str = "";
 		for (int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board.length; j++) {
+			for (int j = 0; j < board[i].length; j++) {
 				if (board[i][j]) {
 					str += "*";
 					if (j < board.length - 1) {
@@ -82,16 +82,16 @@ public class Board {
 //    	}
 //    	
 //    	create a dummy next generation board.
-		boolean nextGenBoard[][] = new boolean[board.length][board.length];
+		boolean nextGenBoard[][] = new boolean[board.length][board[0].length];
 		for (int l = 0; l < board.length; l++) {
-			for (int m = 0; m < board.length; m++) {
+			for (int m = 0; m < board[l].length; m++) {
 				nextGenBoard[l][m] = board[l][m];
 			}
 		}
 //        Iterate through the loop to find the next generation.
 		for (int i = 0; i < board.length; i++) {
 			// int count1 = 0;
-			for (int j = 0; j < board.length; j++) {
+			for (int j = 0; j < board[i].length; j++) {
 				int count = 0;
 				int a = i - 1;
 				int b = j - 1;
